@@ -10,22 +10,22 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('modelos', function (Blueprint $table) {
+        Schema::create('specifications', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('marca_id');
-            $table->string('nome', 30);
-            $table->string('imagem', 100);
-            $table->integer('numero_portas');
-            $table->integer('lugares');
+            $table->unsignedBigInteger('brand_id');
+            $table->string('name', 30);
+            $table->string('image', 100);
+            $table->integer('doors');
+            $table->integer('seats');
             $table->boolean('air_bag');
             $table->boolean('abs');
-            $table->foreign('marca_id')->references('id')->on('marcas');
+            $table->foreign('brand_id')->references('id')->on('brands');
             $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('modelos');
+        Schema::dropIfExists('specifications');
     }
 };

@@ -7,16 +7,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Cliente extends Model
+class Customer extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nome'];
+    protected $fillable = ['name'];
 
     public function rules()
     {
         return [
-            'nome' => 'required|min:3|max:40'
+            'name' => 'required|min:3|max:40'
         ];
     }
 
@@ -24,8 +24,8 @@ class Cliente extends Model
     {
         return [
             'required' => 'O campo :attribute é obrigatório',
-            'nome.min' => 'O nome deve ter 3 caracteres no minímo',
-            'nome.min' => 'O nome deve ter 40 caracteres no máximo'
+            'name.min' => 'O nome deve ter 3 caracteres no minímo',
+            'name.min' => 'O nome deve ter 40 caracteres no máximo'
         ];
     }
 }

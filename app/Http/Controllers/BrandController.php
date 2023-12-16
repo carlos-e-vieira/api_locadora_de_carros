@@ -4,16 +4,17 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
 use App\Models\Marca;
 use App\Repositories\MarcaRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class MarcaController extends Controller
+class BrandController extends Controller
 {
-    private Marca $marca;
+    private Brand $marca;
 
-    public function __construct(Marca $marca)
+    public function __construct(Brand $marca)
     {
         $this->marca = $marca;
     }

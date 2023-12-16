@@ -10,16 +10,15 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('marcas', function (Blueprint $table) {
+        Schema::create('customers', function (Blueprint $table) {
             $table->id();
-            $table->string('nome', 30)->unique();
-            $table->string('imagem', 100)->comment('Logo da Marca');
+            $table->string('name', 30);
             $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('marcas');
+        Schema::dropIfExists('customers');
     }
 };

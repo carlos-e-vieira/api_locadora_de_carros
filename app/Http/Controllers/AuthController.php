@@ -4,42 +4,38 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\LoginFormRequest;
+use Illuminate\Http\JsonResponse;
 
 class AuthController extends Controller
 {
-    public function login(Request $request)
+    public function login(LoginFormRequest $request): JsonResponse
     {
-        // autenmticação (email e senha)
-        $credenciais = $request->all(['email', 'password']);
-        $token = auth('api')->attempt($credenciais);
+        $credentials = $request->only('email', 'password');
+        $token = auth('api')->attempt($credentials);
 
         if ($token === false) {
             return response()->json(['success' => 'false'], 403);
         }
 
-        // retornar um JWT - Json Web Token
-        return response()->json([
-            'success' => 'true',
-            'token' => $token
-        ], 200);
+        return response()->json(['success' => 'true', 'token' => $token], 200);
     }
 
-    public function logout()
+    public function logout(): JsonResponse
     {
-        // faz o logout e colocar o token em uma black list, impossibilitando autorização com o token gerado antes do logout
         auth('api')->logout();
+
         return response()->json(['logout' => true]);
     }
 
-    public function refresh()
+    public function refresh(): JsonResponse
     {
-        // renova a autorização de acesso se o cliente enviou um jwt valido
         $token = auth('api')->refresh();
+
         return response()->json(['token' => $token]);
     }
 
-    public function me()
+    public function me(): JsonResponse
     {
         return response()->json(auth()->user());
     }

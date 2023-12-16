@@ -8,20 +8,20 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Validation\Rule;
 
-class Marca extends Model
+class Brand extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'nome',
-        'imagem'
+        'name',
+        'image'
     ];
 
     public function rules(): array
     {
         return [
-            'nome' => 'required|', Rule::unique('marcas')->ignore($this->id, 'id') ,
-            'imagem' => 'required|file|mimes:png'
+            'name' => 'required|', Rule::unique('marcas')->ignore($this->id, 'id') ,
+            'image' => 'required|file|mimes:png'
         ];
     }
 
@@ -29,14 +29,14 @@ class Marca extends Model
     {
         return [
             'required' => 'O campo :attribute é obrigatório',
-            'imagem.mimes' => 'O arquivo deve ser uma imagem PNG',
-            'nome.unique' => 'O nome da marca já existe',
-            'nome.min' => 'O nome deve ter no minímo 3 caracteres'
+            'image.mimes' => 'O arquivo deve ser uma imagem PNG',
+            'name.unique' => 'O nome da marca já existe',
+            'name.min' => 'O nome deve ter no minímo 3 caracteres'
         ];
     }
 
-    public function modelos()
+    public function specification()
     {
-        return $this->hasMany(Modelo::class);
+        return $this->hasMany(Specification::class);
     }
 }

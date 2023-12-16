@@ -10,19 +10,19 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('carros', function (Blueprint $table) {
+        Schema::create('cars', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('modelo_id');
-            $table->string('placa', 10)->unique();
-            $table->boolean('disponivel');
+            $table->unsignedBigInteger('specification_id');
+            $table->string('plate', 10)->unique();
+            $table->boolean('availability');
             $table->integer('km');
-            $table->foreign('modelo_id')->references('id')->on('modelos');
+            $table->foreign('specification_id')->references('id')->on('specifications');
             $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('carros');
+        Schema::dropIfExists('cars');
     }
 };

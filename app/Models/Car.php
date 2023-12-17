@@ -23,7 +23,7 @@ class Car extends Model
     {
         return [
             'specification_id' => 'required|exists:modelos,id',
-            'plate' => 'required|', Rule::unique('carros')->ignore($this->id, 'id'), 
+            'plate' => 'required|', Rule::unique('cars')->ignore($this->id, 'id'), 
             'availability' => 'required|boolean',
             'km' => 'required|integer'
         ];

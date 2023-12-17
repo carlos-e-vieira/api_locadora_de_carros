@@ -14,7 +14,6 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('brand_id');
             $table->string('name', 30);
-            $table->string('image', 100);
             $table->integer('doors');
             $table->integer('seats');
             $table->boolean('air_bag');

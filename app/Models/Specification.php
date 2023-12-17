@@ -15,7 +15,6 @@ class Specification extends Model
     protected $fillable = [
         'brand_id', 
         'name', 
-        'image', 
         'doors', 
         'seats', 
         'air_bag', 
@@ -26,8 +25,7 @@ class Specification extends Model
     {
         return [
             'brand_id' => 'exists:marcas,id',
-            'name' => 'required|', Rule::unique('modelos')->ignore($this->id, 'id'). '|min:3',
-            'image' => 'required|file|mimes:png,jpeg,jpg',
+            'name' => 'required|', Rule::unique('specification')->ignore($this->id, 'id'). '|min:3',
             'doors' => 'required|integer|digits_between:1,5',
             'seats' => 'required|integer|digits_between:1,20',
             'air_bag' => 'required|boolean',
@@ -41,7 +39,6 @@ class Specification extends Model
             'required' => 'O campo :attribute é obrigatório',
             'name.unique' => 'O nome da marca já existe',
             'name.min' => 'O nome deve ter no minímo 3 caracteres',
-            'image.mimes' => 'O arquivo deve ser uma imagem PNG, JPEG ou JPG',
             'doors.digits_between' => 'O número de portas deve ser entre 1 e 5',
             'seats.digits_between' => 'O número de lugares deve ser entre 1 e 20',
         ];

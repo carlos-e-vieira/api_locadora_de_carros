@@ -12,16 +12,12 @@ class Brand extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'name',
-        'image'
-    ];
+    protected $fillable = ['name'];
 
     public function rules(): array
     {
         return [
-            'name' => 'required|', Rule::unique('marcas')->ignore($this->id, 'id') ,
-            'image' => 'required|file|mimes:png'
+            'name' => 'required|', Rule::unique('brands')->ignore($this->id, 'id')
         ];
     }
 
@@ -29,7 +25,6 @@ class Brand extends Model
     {
         return [
             'required' => 'O campo :attribute é obrigatório',
-            'image.mimes' => 'O arquivo deve ser uma imagem PNG',
             'name.unique' => 'O nome da marca já existe',
             'name.min' => 'O nome deve ter no minímo 3 caracteres'
         ];

@@ -18,7 +18,10 @@ class AuthController extends Controller
             return response()->json(['success' => 'false'], 403);
         }
 
-        return response()->json(['success' => 'true', 'token' => $token], 200);
+        return response()->json([
+            'success' => 'true', 
+            'token' => $token
+        ], 200);
     }
 
     public function logout(): JsonResponse

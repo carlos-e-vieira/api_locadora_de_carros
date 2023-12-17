@@ -22,7 +22,11 @@ class BrandFormRequest extends FormRequest
             return $this->onPut();
         }
 
-        return $this->onPost();
+        if ($action === 'post') {
+            return $this->onPost();
+        }
+
+        return $this->onGet();
     }
 
     public function messages(): array
@@ -46,6 +50,13 @@ class BrandFormRequest extends FormRequest
     {
         return [
             'name' => 'required|string|min:2|max:100|' . Rule::unique('brands', 'name')->ignore($this->id)
+        ];
+    }
+
+    private function onGet(): array
+    {
+        return [
+            'name' => 'nullable'
         ];
     }
 }

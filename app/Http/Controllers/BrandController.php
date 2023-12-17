@@ -7,7 +7,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\BrandFormRequest;
 use App\Services\BrandService;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 class BrandController extends Controller
@@ -19,12 +18,12 @@ class BrandController extends Controller
         $this->brandService = $brandService;
     }
 
-    public function index(Request $request): JsonResponse
+    public function index(BrandFormRequest $brandFormRequest): JsonResponse
     {      
-        $response = $this->brandService->getAllBrandsPaginated($request->toArray());
+        $response = $this->brandService->getAllBrandsPaginated($brandFormRequest->toArray());
 
         if ($response === null) {
-            return response()->json(['success' => false, 'response' => 'Erro ao buscar todas as marcas'], Response::HTTP_NOT_FOUND);
+            return $this->errorResponse('Erro ao listar as marcas', Response::HTTP_NOT_FOUND);
         }
 
         return response()->json(['success' => true, 'response' => $response], Response::HTTP_OK);
@@ -37,7 +36,7 @@ class BrandController extends Controller
         $response = $this->brandService->saveBrand(array_merge($requestData));
 
         if ($response === null) {
-            return response()->json(['success' => false, 'response' => 'Erro ao cadastrar a marca'], Response::HTTP_UNPROCESSABLE_ENTITY);
+            return $this->errorResponse('Erro ao cadastrar a marca', Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
         return response()->json(['success' => true, 'response' => $response], Response::HTTP_CREATED);
@@ -48,7 +47,7 @@ class BrandController extends Controller
         $response = $this->brandService->getBrandById($id);
         
         if ($response === null) {
-            return response()->json(['success' => false, 'response' => 'Erro na busca da marca'], Response::HTTP_NOT_FOUND);
+            return $this->errorResponse('Erro ao buscar a marca', Response::HTTP_NOT_FOUND);
         }
 
         return response()->json(['success' => true, 'response' => $response], Response::HTTP_OK);
@@ -61,7 +60,7 @@ class BrandController extends Controller
         $response = $this->brandService->updateBrand($requestData, $id);
 
         if ($response === null) {
-            return response()->json(['success' => false, 'response' => 'Erro ao atualizar a marca'], Response::HTTP_UNPROCESSABLE_ENTITY);
+            return $this->errorResponse('Erro ao atualizar a marca', Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
         return response()->json(['success' => true, 'response' => $response], Response::HTTP_OK);
@@ -72,9 +71,14 @@ class BrandController extends Controller
         $response = $this->brandService->deleteBrand($id);
 
         if ($response === false) {
-            return response()->json(['success' => false, 'error' => 'Erro ao deletar a marca'], Response::HTTP_NOT_FOUND);
+            return $this->errorResponse('Erro ao deletar a marca', Response::HTTP_NOT_FOUND);
         }
 
         return response()->json(['success' => true, 'response' => 'Registro deletado com sucesso!'], Response::HTTP_OK);
+    }
+
+    private function errorResponse(string $message, int $statusCode): JsonResponse
+    {
+        return response()->json(['success' => false, 'error' => $message], $statusCode);
     }
 }

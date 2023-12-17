@@ -4,134 +4,77 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use App\Models\Brand;
-use App\Models\Marca;
-use App\Repositories\MarcaRepository;
+use App\Http\Requests\BrandFormRequest;
+use App\Services\BrandService;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Response;
 
 class BrandController extends Controller
 {
-    private Brand $marca;
+    private BrandService $brandService;
 
-    public function __construct(Brand $marca)
+    public function __construct(BrandService $brandService)
     {
-        $this->marca = $marca;
+        $this->brandService = $brandService;
     }
 
-    public function index(Request $request)
-    {
-        $marcaRepository = new MarcaRepository($this->marca);
+    public function index(Request $request): JsonResponse
+    {      
+        $response = $this->brandService->getAllBrandsPaginated($request->toArray());
 
-        // condição de busca por atributos do modelo
-        if ($request->has('atributos_modelos')) {
-            $atributos_modelos = 'modelos:id,'. $request->atributos_modelos;
-            $marcaRepository->selectAtributosRegistrosRelacionados($atributos_modelos);
+        if ($response === null) {
+            return response()->json(['success' => false, 'response' => 'Erro ao buscar todas as marcas'], Response::HTTP_NOT_FOUND);
+        }
+
+        return response()->json(['success' => true, 'response' => $response], Response::HTTP_OK);
+    }
+
+    public function store(BrandFormRequest $brandFormRequest): JsonResponse
+    {
+        $requestData = $brandFormRequest->only('name');
+
+        $response = $this->brandService->saveBrand(array_merge($requestData));
+
+        if ($response === null) {
+            return response()->json(['success' => false, 'response' => 'Erro ao cadastrar a marca'], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        return response()->json(['success' => true, 'response' => $response], Response::HTTP_CREATED);
+    }
+
+    public function show(int $id): JsonResponse
+    {
+        $response = $this->brandService->getBrandById($id);
         
-        } else {
-            $marcaRepository->selectAtributosRegistrosRelacionados('modelos');
+        if ($response === null) {
+            return response()->json(['success' => false, 'response' => 'Erro na busca da marca'], Response::HTTP_NOT_FOUND);
         }
 
-        // condição de busca com filtro
-        if ($request->has('filtro')) {
-            $marcaRepository->filtro($request->filtro);
-        }
-
-        // condição de busca por atributos do marca
-        if ($request->has('atributos')) {
-            $marcaRepository->selectAtributos($request->atributos);
-        }
-
-        return response()->json($marcaRepository->getResultado(), 200);
+        return response()->json(['success' => true, 'response' => $response], Response::HTTP_OK);
     }
 
-    public function store(Request $request)
+    public function update(BrandFormRequest $brandFormRequest, int $id): JsonResponse
     {
-        //$marca = Marca::create($request->all());
-        $request->validate($this->marca->rules(), $this->marca->feedback());
+        $requestData = $brandFormRequest->only('name');
 
-        $image = $request->file('image');
-        $imageEndpoint = $image->store('images/users', 'public');
+        $response = $this->brandService->updateBrand($requestData, $id);
 
-        $marca = $this->marca->create(
-            [
-                'name' => $request->nome,
-                'email'  => $request->email,
-                'password'  => $request->password,
-                'permission'  => $request->permission,
-                'image' => $imageEndpoint
-            ]
-        );
+        if ($response === null) {
+            return response()->json(['success' => false, 'response' => 'Erro ao atualizar a marca'], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
 
-        return response()->json($marca, 201);
+        return response()->json(['success' => true, 'response' => $response], Response::HTTP_OK);
     }
 
-    public function show($id)
+    public function destroy(int $id): JsonResponse
     {
-        // adicionando o relacionamento - uma marca tem muito modelos
-        $marca = $this->marca->with('modelos')->find($id);
+        $response = $this->brandService->deleteBrand($id);
 
-        if ($marca === null) {
-            return response()->json(['success' => false], 404);
+        if ($response === false) {
+            return response()->json(['success' => false, 'error' => 'Erro ao deletar a marca'], Response::HTTP_NOT_FOUND);
         }
 
-        return response()->json($marca, 200);
-    }
-
-    public function update(Request $request, $id)
-    {
-        //$marca->update($request->all());
-        $marca = $this->marca->find($id);
-
-        if ($marca === null) {
-            return response()->json(['success' => false], 404);
-        }
-
-        if ($request->method() === 'PATCH') {
-            $dinamicsRules = array();
-
-            foreach ($marca->rules() as $input => $rule) {
-
-                if (array_key_exists($input, $request->all())) {
-                    $dinamicsRules[$input] = $rule;
-                }
-
-            }
-            $request->validate($dinamicsRules, $this->marca->feedback());
-        }
-
-        if ($request->method() === 'PUT') {
-            $request->validate($this->marca->rules(), $this->marca->feedback());
-        }
-
-        // Remove o arquivo antigo caso um novo seja enviado no request
-        if ($request->file('imagem')) {
-            Storage::disk('public')->delete($marca->imagem);
-        }
-        
-        $image = $request->file('imagem');
-        $imageEndpoint = $image->store('imagens', 'public');
-
-        // Preencher objeto $marca com os dados da request
-        $marca->fill($request->all());
-        $marca->imagem = $imageEndpoint;
-        $marca->save();
-
-        return response()->json($marca, 200);
-    }
-
-    public function destroy($id)
-    {
-        $marca = $this->marca->find($id);
-
-        if ($marca === null) {
-            return response()->json(['success' => false], 404);
-        }
-
-        // Remove o arquivo antigo
-        Storage::disk('public')->delete($marca->imagem);
-
-        $marca->delete();
-        return response()->json(['success' => true], 200);
+        return response()->json(['success' => true, 'response' => 'Registro deletado com sucesso!'], Response::HTTP_OK);
     }
 }

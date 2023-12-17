@@ -6,25 +6,21 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginFormRequest;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Response;
 
 class AuthController extends Controller
 {
-    public function login(LoginFormRequest $request): JsonResponse
+    public function login(LoginFormRequest $loginFormRequest): JsonResponse
     {
-        $credentials = $request->only('email', 'password');
+        $credentials = $loginFormRequest->only('email', 'password');
+
         $token = auth('api')->attempt($credentials);
 
         if ($token === false) {
-            return response()->json([
-                'success' => 'false',
-                'erro' => 'Usuário ou senha inválido'
-            ], 403);
+            return response()->json(['success' => false, 'error' => 'Usuário ou senha inválido'], Response::HTTP_FORBIDDEN);
         }
 
-        return response()->json([
-            'success' => 'true', 
-            'token' => $token
-        ], 200);
+        return response()->json(['success' => true, 'token' => $token], Response::HTTP_OK);
     }
 
     public function logout(): JsonResponse

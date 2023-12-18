@@ -61,29 +61,29 @@ class BrandRepository implements BrandRepositoryInterface
         }
     }
 
-    public function update(array $data,int $id): bool
+    public function update(array $data,int $id): ?Brand
     {
         try {
             $this->brand->findOrFail($id)->update($data);
 
-            return true;
+            return $this->getById($id);
         } catch (\Exception $e) {
             Log::error('Erro ao atualizar a marca: ' . $e->getMessage());
 
-            return false;
+            return null;
         }
     }
 
-    public function delete(int $id): bool
+    public function delete(int $id): ?object
     {
         try {
             $this->brand->findOrFail($id)->delete();
 
-            return true;
+            return (object) 'Registro deletado com sucesso';
         } catch (\Exception $e) {
             Log::error('Erro ao deletar os dados da marca: ' . $e->getMessage());
 
-            return false;
+            return null;
         }
     }
 }

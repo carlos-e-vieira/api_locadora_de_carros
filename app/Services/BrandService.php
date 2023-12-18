@@ -18,53 +18,31 @@ class BrandService
 
     public function getAllBrandsPaginated(array $filters): ?object
     {
-        $brands = $this->brandRepository->getAll($filters);
-
-        return $this->handleResult($brands);
+        return $this->handleResult($this->brandRepository->getAll($filters));
     }
 
     public function saveBrand(array $data): ?object
     {
-        $brand = $this->brandRepository->save($data);
-
-        return $this->handleResult($brand);
+        return $this->handleResult($this->brandRepository->save($data));
     }
 
     public function getBrandById(int $id): ?object
     {
-        $brand = $this->brandRepository->getById($id);
-
-        return $this->handleResult($brand);
+        return $this->handleResult($this->brandRepository->getById($id));
     }
 
     public function updateBrand(array $data, int $id): ?object
-    {
-        $brand = $this->brandRepository->update($data, $id);
-        
-        if ($brand === false) {
-            return null;
-        }
-
-        return $this->getBrandById($id);
+    {        
+        return $this->handleResult($$this->brandRepository->update($data, $id));
     }
 
-    public function deleteBrand(int $id): bool
+    public function deleteBrand(int $id): ?object
     {
-        $brandDeleted = $this->brandRepository->delete($id);
-
-        if ($brandDeleted === false) {
-            return false;
-        }
-
-        return true;
+        return $this->handleResult($this->brandRepository->delete($id));
     }
 
     private function handleResult(?object $result): ?object
     {
-        if (!$result) {
-            return null;
-        }
-
-        return $result;
+        return !$result ? null : $result;
     }
 }

@@ -15,7 +15,7 @@ interface BrandRepositoryInterface
 
     public function getById(int $id): ?Brand;
 
-    public function update(array $data,int $id): bool;
+    public function update(array $data,int $id): ?Brand;
 
-    public function delete(int $id): bool;
+    public function delete(int $id): ?object;
 }

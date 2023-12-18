@@ -22,7 +22,7 @@ class SpecificationFormRequest extends FormRequest
             return $this->onPut();
         }
 
-        if ($action === 'post') {
+        if ($action === 'store') {
             return $this->onPost();
         }
 

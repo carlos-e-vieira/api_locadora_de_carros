@@ -43,7 +43,7 @@ class BrandFormRequest extends FormRequest
     {
         return [
             'specification_id' => 'required|exists:modelos,id',
-            'plate' => 'required|string|min:2|max:30|' . Rule::unique('cars', 'plate'),
+            'plate' => 'required|min:7|max:7|' . Rule::unique('cars', 'plate'),
             'availability' => 'required|boolean',
             'km' => 'required|integer'
         ];
@@ -53,7 +53,7 @@ class BrandFormRequest extends FormRequest
     {
         return [
             'specification_id' => 'required|exists:modelos,id',
-            'plate' => 'required|string|min:2|max:100|' . Rule::unique('cars', 'plate')->ignore($this->id),
+            'plate' => 'required|min:7|max:7|' . Rule::unique('cars', 'plate')->ignore($this->id),
             'availability' => 'required|boolean',
             'km' => 'required|integer'
         ];

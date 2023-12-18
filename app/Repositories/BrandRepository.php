@@ -44,7 +44,7 @@ class BrandRepository implements BrandRepositoryInterface
 
             return $brand;
         } catch (\Exception $e) {
-            Log::error('Erro ao salvar a marca: ' . $e->getMessage());
+            Log::error('Erro ao salvar os dados da marca: ' . $e->getMessage());
 
             return null;
         }
@@ -68,7 +68,7 @@ class BrandRepository implements BrandRepositoryInterface
 
             return $this->getById($id);
         } catch (\Exception $e) {
-            Log::error('Erro ao atualizar a marca: ' . $e->getMessage());
+            Log::error('Erro ao atualizar os dados da marca: ' . $e->getMessage());
 
             return null;
         }

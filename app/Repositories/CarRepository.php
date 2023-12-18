@@ -23,12 +23,12 @@ class CarRepository implements CarRepositoryInterface
         $query = $this->car::query();
 
         $filtersQuery = [
-            'name' => $filters['name'] ?? ''
+            'plate' => $filters['plate'] ?? ''
         ];
     
         if (!empty($filtersQuery)) {
             $query->where([
-                ['name', 'LIKE', '%' . $filtersQuery['name'] . '%']
+                ['plate', 'LIKE', '%' . $filtersQuery['plate'] . '%']
             ]);
         }
     

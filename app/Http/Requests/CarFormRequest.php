@@ -42,7 +42,7 @@ class BrandFormRequest extends FormRequest
     private function onPost(): array
     {
         return [
-            'specification_id' => 'required|exists:modelos,id',
+            'specification_id' => 'required|exists:specifications,id',
             'plate' => 'required|min:7|max:7|' . Rule::unique('cars', 'plate'),
             'availability' => 'required|boolean',
             'km' => 'required|integer'
@@ -52,7 +52,7 @@ class BrandFormRequest extends FormRequest
     private function onPut(): array
     {
         return [
-            'specification_id' => 'required|exists:modelos,id',
+            'specification_id' => 'required|exists:specifications,id',
             'plate' => 'required|min:7|max:7|' . Rule::unique('cars', 'plate')->ignore($this->id),
             'availability' => 'required|boolean',
             'km' => 'required|integer'

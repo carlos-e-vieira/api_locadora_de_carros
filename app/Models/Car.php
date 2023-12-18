@@ -6,7 +6,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Validation\Rule;
 
 class Car extends Model
 {
@@ -18,26 +17,6 @@ class Car extends Model
         'availability', 
         'km'
     ];
-
-    public function rules()
-    {
-        return [
-            'specification_id' => 'required|exists:modelos,id',
-            'plate' => 'required|', Rule::unique('cars')->ignore($this->id, 'id'), 
-            'availability' => 'required|boolean',
-            'km' => 'required|integer'
-        ];
-    }
-
-    public function feedback()
-    {
-        return [
-            'required' => 'O campo :attribute é obrigatório.',
-            'plate.unique' => 'Essa placa já existe',
-            'plate.min' => 'A placa deve ter 7 caracteres',
-            'plate.max' => 'A placa deve ter 7 caracteres',
-        ];
-    }
 
     public function specification()
     {

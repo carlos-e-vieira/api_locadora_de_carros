@@ -9,7 +9,7 @@ use Illuminate\Http\Response;
 
 class ResponseHelper
 {
-    public static function getResponse($response, string $contextName, string $action): JsonResponse
+    public static function getResponse(object $response, string $contextName, string $action): JsonResponse
     {
         $messages = [
             'index' => 'Erro ao listar ' . $contextName . 's',

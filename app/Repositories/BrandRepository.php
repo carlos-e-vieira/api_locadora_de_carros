@@ -18,7 +18,7 @@ class BrandRepository implements BrandRepositoryInterface
         $this->brand = $brand;
     }
 
-    public function getAll(array $filters): LengthAwarePaginator
+    public function getAll(array $filters): ?LengthAwarePaginator
     {
         $query = $this->brand::query();
 

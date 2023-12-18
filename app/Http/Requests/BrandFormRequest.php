@@ -42,14 +42,14 @@ class BrandFormRequest extends FormRequest
     private function onPost(): array
     {
         return [
-            'name' => 'required|string|min:2|max:30|' . Rule::unique('brands', 'name')
+            'name' => 'required|string|min:3|max:30|' . Rule::unique('brands', 'name')
         ];
     }
 
     private function onPut(): array
     {
         return [
-            'name' => 'required|string|min:2|max:100|' . Rule::unique('brands', 'name')->ignore($this->id)
+            'name' => 'required|string|min:3|max:100|' . Rule::unique('brands', 'name')->ignore($this->id)
         ];
     }
 

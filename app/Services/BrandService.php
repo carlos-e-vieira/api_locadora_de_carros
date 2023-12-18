@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services;
 
+use App\Exceptions\BrandExceptions;
 use App\Interfaces\BrandRepositoryInterface;
 use App\Repositories\BrandRepository;
 
@@ -16,33 +17,58 @@ class BrandService
         $this->brandRepository = $brandRepositoryInterface;
     }
 
-    public function getAllBrandsPaginated(array $filters): ?object
+    public function getAllBrandsPaginated(array $filters): object
     {
-        return $this->handleResult($this->brandRepository->getAll($filters));
+        $brands = $this->brandRepository->getAll($filters);
+
+        if ($brands === null) {
+            throw new BrandExceptions(__FUNCTION__);
+        }
+
+        return $brands;
     }
 
-    public function saveBrand(array $data): ?object
+    public function saveBrand(array $data): object
     {
-        return $this->handleResult($this->brandRepository->save($data));
+        $brand = $this->brandRepository->save($data);
+
+        if ($brand === null) {
+            throw new BrandExceptions(__FUNCTION__);
+        }
+
+        return $brand;
     }
 
-    public function getBrandById(int $id): ?object
+    public function getBrandById(int $id): object
     {
-        return $this->handleResult($this->brandRepository->getById($id));
+        $brand = $this->brandRepository->getById($id);
+
+        if ($brand === null) {
+            throw new BrandExceptions(__FUNCTION__);
+        }
+
+        return $brand;
     }
 
-    public function updateBrand(array $data, int $id): ?object
+    public function updateBrand(array $data, int $id): object
     {        
-        return $this->handleResult($$this->brandRepository->update($data, $id));
+        $brand = $this->brandRepository->update($data, $id);
+
+        if ($brand === null) {
+            throw new BrandExceptions(__FUNCTION__);
+        }
+
+        return $brand;
     }
 
-    public function deleteBrand(int $id): ?object
+    public function deleteBrand(int $id): object
     {
-        return $this->handleResult($this->brandRepository->delete($id));
-    }
+        $message = $this->brandRepository->delete($id);
 
-    private function handleResult(?object $result): ?object
-    {
-        return !$result ? null : $result;
+        if ($message === null) {
+            throw new BrandExceptions(__FUNCTION__);
+        }
+
+        return $message;
     }
 }

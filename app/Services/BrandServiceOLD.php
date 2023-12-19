@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace App\Services;
 
 use App\Exceptions\BrandExceptions;
-use App\Repositories\BrandRepository;
+use App\Interfaces\BrandRepositoryInterface;
 
 class BrandService
 {
-    private BrandRepository $brandRepository;
+    private BrandRepositoryInterface $brandRepository;
 
-    public function __construct(BrandRepository $brandRepository)
+    public function __construct(BrandRepositoryInterface $brandRepository)
     {
         $this->brandRepository = $brandRepository;
     }
@@ -54,7 +54,7 @@ class BrandService
 
     public function deleteBrand(int $id): object
     {
-        $message = (object) $this->brandRepository->delete($id);
+        $message = $this->brandRepository->delete($id);
 
         $this->checkEmpty($message, 'Erro ao deletar os dados da marca');
 

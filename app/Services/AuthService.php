@@ -8,12 +8,12 @@ use App\Exceptions\AuthExceptions;
 
 class AuthService
 {
-    public function getToken(array $credentials): object
+    public function getToken(array $credentials): mixed
     {
         $token = auth('api')->attempt($credentials);
 
-        if (empty($data)) {
-            throw new AuthExceptions($token);
+        if (empty($token)) {
+            throw new AuthExceptions('Erro ao gerar Token');
         }
 
         return $token;

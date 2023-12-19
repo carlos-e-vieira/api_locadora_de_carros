@@ -54,7 +54,7 @@ class BrandService
 
     public function deleteBrand(int $id): object
     {
-        $message = (object) $this->brandRepository->delete($id);
+        $message = $this->brandRepository->delete($id);
 
         $this->checkEmpty($message, 'Erro ao deletar os dados da marca');
 

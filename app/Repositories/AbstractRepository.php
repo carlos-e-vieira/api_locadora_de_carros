@@ -67,12 +67,12 @@ abstract class AbstractRepository
         }
     }
 
-    public function delete(int $id): ?string
+    public function delete(int $id): ?object
     {
         try {
             $this->model->findOrFail($id)->delete();
 
-            return 'Registro deletado com sucesso';
+            return (object) 'Registro deletado com sucesso';
         } catch (\Exception $e) {
             Log::error('Erro ao deletar os dados: ' . $e->getMessage());
 

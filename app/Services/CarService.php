@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace App\Services;
 
 use App\Exceptions\CarExceptions;
-use App\Interfaces\CarRepositoryInterface;
+use App\Repositories\CarRepository;
 
 class CarService
 {
-    private CarRepositoryInterface $carRepository;
+    private CarRepository $carRepository;
 
-    public function __construct(CarRepositoryInterface $carRepository)
+    public function __construct(CarRepository $carRepository)
     {
         $this->carRepository = $carRepository;
     }

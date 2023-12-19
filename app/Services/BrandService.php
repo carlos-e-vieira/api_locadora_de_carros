@@ -6,24 +6,21 @@ namespace App\Services;
 
 use App\Exceptions\BrandExceptions;
 use App\Interfaces\BrandRepositoryInterface;
-use App\Repositories\BrandRepository;
 
 class BrandService
 {
-    private BrandRepository $brandRepository;
+    private BrandRepositoryInterface $brandRepository;
 
-    public function __construct(BrandRepositoryInterface $brandRepositoryInterface)
+    public function __construct(BrandRepositoryInterface $brandRepository)
     {
-        $this->brandRepository = $brandRepositoryInterface;
+        $this->brandRepository = $brandRepository;
     }
 
     public function getAllBrandsPaginated(array $filters): object
     {
         $brands = $this->brandRepository->getAll($filters);
 
-        if ($brands === null) {
-            throw new BrandExceptions(__FUNCTION__);
-        }
+        $this->checkEmpty($brands, 'Erro ao listar todos os registros de marcas');
 
         return $brands;
     }
@@ -32,9 +29,7 @@ class BrandService
     {
         $brand = $this->brandRepository->save($data);
 
-        if ($brand === null) {
-            throw new BrandExceptions(__FUNCTION__);
-        }
+        $this->checkEmpty($brand, 'Erro ao cadastrar os dados da marca');
 
         return $brand;
     }
@@ -43,9 +38,7 @@ class BrandService
     {
         $brand = $this->brandRepository->getById($id);
 
-        if ($brand === null) {
-            throw new BrandExceptions(__FUNCTION__);
-        }
+        $this->checkEmpty($brand, 'Erro ao listar os dados da marca');
 
         return $brand;
     }
@@ -54,9 +47,7 @@ class BrandService
     {        
         $brand = $this->brandRepository->update($data, $id);
 
-        if ($brand === null) {
-            throw new BrandExceptions(__FUNCTION__);
-        }
+        $this->checkEmpty($brand, 'Erro ao atualizar os dados da marca');
 
         return $brand;
     }
@@ -65,10 +56,15 @@ class BrandService
     {
         $message = $this->brandRepository->delete($id);
 
-        if ($message === null) {
-            throw new BrandExceptions(__FUNCTION__);
-        }
+        $this->checkEmpty($message, 'Erro ao deletar os dados da marca');
 
         return $message;
+    }
+
+    private function checkEmpty($data, string $errorMessage): void
+    {
+        if (empty($data)) {
+            throw new BrandExceptions($errorMessage);
+        }
     }
 }

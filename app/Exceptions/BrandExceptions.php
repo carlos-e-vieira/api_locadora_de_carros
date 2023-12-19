@@ -9,34 +9,23 @@ use Illuminate\Http\Response;
 
 class BrandExceptions extends Exception
 {
-    private array $errorMessages = [
-        'getAllBrandsPaginated' => [
-            'message' => 'Erro ao listar os dados das marcas',
-            'status' => Response::HTTP_NOT_FOUND,
-        ],
-        'saveBrand' => [
-            'message' => 'Erro ao cadastrar os dados da marca',
-            'status' => Response::HTTP_UNPROCESSABLE_ENTITY,
-        ],
-        'getBrandById' => [
-            'message' => 'Erro ao listar os dados da marca',
-            'status' => Response::HTTP_NOT_FOUND,
-        ],
-        'updateBrand' => [
-            'message' => 'Erro ao atualizar os dados da marca',
-            'status' => Response::HTTP_UNPROCESSABLE_ENTITY,
-        ],
-        'deleteBrand' => [
-            'message' => 'Erro ao deletar os dados da marca',
-            'status' => Response::HTTP_NOT_FOUND,
-        ],
+    private const ERROR_STATUSES = [
+        'getAllBrandsPaginated' => Response::HTTP_NOT_FOUND,
+        'saveBrand' => Response::HTTP_UNPROCESSABLE_ENTITY,
+        'getBrandById' => Response::HTTP_NOT_FOUND,
+        'updateBrand' => Response::HTTP_UNPROCESSABLE_ENTITY,
+        'deleteBrand' => Response::HTTP_NOT_FOUND,
     ];
 
     public function render($request)
     {
-        $errorMessage = $this->errorMessages[$this->getMessage()]['message'] ?? 'Erro desconhecido';
-        $statusCode = $this->errorMessages[$this->getMessage()]['status'] ?? Response::HTTP_INTERNAL_SERVER_ERROR;
+        $statusCode = $this->getStatusCode($this->getMessage());
 
-        return response()->json(['success' => false, 'error' => $errorMessage], $statusCode);
+        return response()->json(['success' => false, 'error' => $this->getMessage()], $statusCode);
+    }
+
+    public function getStatusCode(string $key): int
+    {
+        return self::ERROR_STATUSES[$key] ?? Response::HTTP_INTERNAL_SERVER_ERROR;
     }
 }

@@ -35,6 +35,7 @@ class CustomerFormRequest extends FormRequest
             'required' => 'O campo :attribute é obrigatório',
             'name.min' => 'O nome deve ter 3 caracteres no minímo',
             'name.max' => 'O nome deve ter 40 caracteres no máximo',
+            'cpf.unique' => 'O CPF já existe',
             'cpf.min' => 'O CPF deve ter 11 caracteres',
             'cpf.max' => 'O CPF deve ter 11 caracteres'
         ];

@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace App\Services;
 
 use App\Exceptions\CustomerExceptions;
-use App\Interfaces\CustomerRepositoryInterface;
+use App\Repositories\CustomerRepository;
 
 class CustomerService
 {
-    private CustomerRepositoryInterface $customerRepository;
+    private CustomerRepository $customerRepository;
 
-    public function __construct(CustomerRepositoryInterface $customerRepository)
+    public function __construct(CustomerRepository $customerRepository)
     {
         $this->customerRepository = $customerRepository;
     }

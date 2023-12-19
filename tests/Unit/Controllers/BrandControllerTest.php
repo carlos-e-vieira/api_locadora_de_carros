@@ -22,7 +22,9 @@ class BrandControllerTest extends TestCase
 
         // Mock the BrandService
         $brandService = $this->createMock(BrandService::class);
+
         $brands = new LengthAwarePaginator([], 0, 15);
+
         $brandService->expects($this->once())
             ->method('getAllBrandsPaginated')
             ->with($brandFormRequest->toArray())
@@ -33,7 +35,9 @@ class BrandControllerTest extends TestCase
 
         // Call the controller method and assert the response
         $response = $brandController->index($brandFormRequest);
+
         $expectedResponse = response()->json(['success' => true, 'response' => $brands], JsonResponse::HTTP_OK);
+        
         $this->assertEquals($expectedResponse->getContent(), $response->getContent());
     }
 

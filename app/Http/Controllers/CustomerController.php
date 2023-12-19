@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use App\Http\Helpers\ResponseHelper;
 use App\Http\Requests\CustomerFormRequest;
 use App\Services\CustomerService;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Response;
 
 class CustomerController extends Controller
 {
@@ -22,38 +22,38 @@ class CustomerController extends Controller
     {      
         $response = $this->customerService->getAllCustomersPaginated($customerFormRequest->toArray());
 
-        return ResponseHelper::getResponse($response, 'marca', __FUNCTION__);
+        return response()->json(['success' => true, 'response' => $response], Response::HTTP_OK);
     }
 
     public function store(CustomerFormRequest $customerFormRequest): JsonResponse
     {
-        $requestData = $customerFormRequest->only('name');
+        $requestData = $customerFormRequest->only('name', 'cpf');
 
         $response = $this->customerService->saveCustomer($requestData);
 
-        return ResponseHelper::getResponse($response, 'marca', __FUNCTION__);
+        return response()->json(['success' => true, 'response' => $response], Response::HTTP_CREATED);
     }
 
     public function show(int $id): JsonResponse
     {
         $response = $this->customerService->getCustomerById($id);
-
-        return ResponseHelper::getResponse($response, 'marca', __FUNCTION__);
+        
+        return response()->json(['success' => true, 'response' => $response], Response::HTTP_OK);
     }
 
     public function update(CustomerFormRequest $customerFormRequest, int $id): JsonResponse
     {
-        $requestData = $customerFormRequest->only('name');
+        $requestData = $customerFormRequest->only('name', 'cpf');
 
         $response = $this->customerService->updateCustomer($requestData, $id);
 
-        return ResponseHelper::getResponse($response, 'marca', __FUNCTION__);
+        return response()->json(['success' => true, 'response' => $response], Response::HTTP_OK);
     }
 
     public function destroy(int $id): JsonResponse
     {
         $response = $this->customerService->deleteCustomer($id);
 
-        return ResponseHelper::getResponse($response, 'marca', __FUNCTION__);
+        return response()->json(['success' => true, 'response' => $response], Response::HTTP_OK);
     }
 }

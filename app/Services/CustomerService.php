@@ -4,45 +4,67 @@ declare(strict_types=1);
 
 namespace App\Services;
 
+use App\Exceptions\CustomerExceptions;
 use App\Interfaces\CustomerRepositoryInterface;
-use App\Repositories\CustomerRepository;
 
 class CustomerService
 {
-    private CustomerRepository $customerRepository;
+    private CustomerRepositoryInterface $customerRepository;
 
-    public function __construct(CustomerRepositoryInterface $customerRepositoryInterface)
+    public function __construct(CustomerRepositoryInterface $customerRepository)
     {
-        $this->customerRepository = $customerRepositoryInterface;
+        $this->customerRepository = $customerRepository;
     }
 
-    public function getAllCustomersPaginated(array $filters): ?object
+    public function getAllCustomersPaginated(array $filters): object
     {
-        return $this->handleResult($this->customerRepository->getAll($filters));
+        $customers = $this->customerRepository->getAll($filters);
+
+        $this->checkEmpty($customers, 'Erro ao listar todos os registros de clientes');
+
+        return $customers;
     }
 
-    public function saveCustomer(array $data): ?object
+    public function saveCustomer(array $data): object
     {
-        return $this->handleResult($this->customerRepository->save($data));
+        $customer = $this->customerRepository->save($data);
+
+        $this->checkEmpty($customer, 'Erro ao cadastrar os dados do cliente');
+
+        return $customer;
     }
 
-    public function getCustomerById(int $id): ?object
+    public function getCustomerById(int $id): object
     {
-        return $this->handleResult($this->customerRepository->getById($id));
+        $customer = $this->customerRepository->getById($id);
+
+        $this->checkEmpty($customer, 'Erro ao listar os dados do cliente');
+
+        return $customer;
     }
 
-    public function updateCustomer(array $data, int $id): ?object
+    public function updateCustomer(array $data, int $id): object
     {        
-        return $this->handleResult($$this->customerRepository->update($data, $id));
+        $customer = $this->customerRepository->update($data, $id);
+
+        $this->checkEmpty($customer, 'Erro ao atualizar os dados do cliente');
+
+        return $customer;
     }
 
-    public function deleteCustomer(int $id): ?object
+    public function deleteCustomer(int $id): object
     {
-        return $this->handleResult($this->customerRepository->delete($id));
+        $message = $this->customerRepository->delete($id);
+
+        $this->checkEmpty($message, 'Erro ao deletar os dados do cliente');
+
+        return $message;
     }
 
-    private function handleResult(?object $result): ?object
+    private function checkEmpty($data, string $errorMessage): void
     {
-        return !$result ? null : $result;
+        if (empty($data)) {
+            throw new CustomerExceptions($errorMessage);
+        }
     }
 }

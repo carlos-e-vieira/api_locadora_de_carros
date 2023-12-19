@@ -27,7 +27,7 @@ class CarController extends Controller
 
     public function store(CarFormRequest $carFormRequest): JsonResponse
     {
-        $requestData = $carFormRequest->only('name');
+        $requestData = $carFormRequest->only('specification_id', 'plate', 'availability', 'km');
 
         $response = $this->carService->saveCar($requestData);
 
@@ -43,7 +43,7 @@ class CarController extends Controller
 
     public function update(CarFormRequest $carFormRequest, int $id): JsonResponse
     {
-        $requestData = $carFormRequest->only('name');
+        $requestData = $carFormRequest->only('specification_id', 'plate', 'availability', 'km');
 
         $response = $this->carService->updateCar($requestData, $id);
 

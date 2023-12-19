@@ -18,19 +18,19 @@ class CustomerRepository implements CustomerRepositoryInterface
         $this->customer = $customer;
     }
 
-    public function getAll(array $filters): LengthAwarePaginator
+    public function getAll(array $filters): ?LengthAwarePaginator
     {
         $query = $this->customer::query();
 
         $filtersQuery = [
             'name' => $filters['name'] ?? '',
-            'cpf' => $filters['cpf'] ?? ''
+            'cpf' => $filters['cpf'] ?? '',
         ];
     
         if (!empty($filtersQuery)) {
             $query->where([
                 ['name', 'LIKE', '%' . $filtersQuery['name'] . '%'],
-                ['cpf', 'LIKE', '%' . $filtersQuery['cpf'] . '%']
+                ['cpf', 'LIKE', '%' . $filtersQuery['cpf'] . '%'],
             ]);
         }
     

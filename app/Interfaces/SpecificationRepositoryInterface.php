@@ -9,7 +9,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 interface SpecificationRepositoryInterface
 {
-    public function getAll(array $filters): LengthAwarePaginator;
+    public function getAll(array $filters): ?LengthAwarePaginator;
 
     public function save(array $data): ?Specification;
 

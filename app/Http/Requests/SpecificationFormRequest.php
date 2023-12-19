@@ -33,7 +33,7 @@ class SpecificationFormRequest extends FormRequest
     {
         return [
             'required' => 'O campo :attribute é obrigatório',
-            'name.unique' => 'O nome da marca já existe',
+            'name.unique' => 'O nome da especificação já existe',
             'name.min' => 'O nome deve ter no minímo 3 caracteres',
             'doors.digits_between' => 'O número de portas deve ser entre 1 e 5',
             'seats.digits_between' => 'O número de lugares deve ser entre 1 e 20',

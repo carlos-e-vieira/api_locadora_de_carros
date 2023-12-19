@@ -4,45 +4,67 @@ declare(strict_types=1);
 
 namespace App\Services;
 
+use App\Exceptions\SpecificationExceptions;
 use App\Interfaces\SpecificationRepositoryInterface;
-use App\Repositories\SpecificationRepository;
 
 class SpecificationService
 {
-    private SpecificationRepository $specificationRepository;
+    private SpecificationRepositoryInterface $specificationRepository;
 
-    public function __construct(SpecificationRepositoryInterface $specificationRepositoryInterface)
+    public function __construct(SpecificationRepositoryInterface $specificationRepository)
     {
-        $this->specificationRepository = $specificationRepositoryInterface;
+        $this->specificationRepository = $specificationRepository;
     }
 
-    public function getAllSpecificationsPaginated(array $filters): ?object
+    public function getAllSpecificationsPaginated(array $filters): object
     {
-        return $this->handleResult($this->specificationRepository->getAll($filters));
+        $specifications = $this->specificationRepository->getAll($filters);
+
+        $this->checkEmpty($specifications, 'Erro ao listar todos os registros de especificações');
+
+        return $specifications;
     }
 
-    public function saveSpecification(array $data): ?object
+    public function saveSpecification(array $data): object
     {
-        return $this->handleResult($this->specificationRepository->save($data));
+        $specification = $this->specificationRepository->save($data);
+
+        $this->checkEmpty($specification, 'Erro ao cadastrar os dados da especificação');
+
+        return $specification;
     }
 
-    public function getSpecificationById(int $id): ?object
+    public function getSpecificationById(int $id): object
     {
-        return $this->handleResult($this->specificationRepository->getById($id));
+        $specification = $this->specificationRepository->getById($id);
+
+        $this->checkEmpty($specification, 'Erro ao listar os dados da especificação');
+
+        return $specification;
     }
 
-    public function updateSpecification(array $data, int $id): ?object
+    public function updateSpecification(array $data, int $id): object
     {        
-        return $this->handleResult($$this->specificationRepository->update($data, $id));
+        $specification = $this->specificationRepository->update($data, $id);
+
+        $this->checkEmpty($specification, 'Erro ao atualizar os dados da especificação');
+
+        return $specification;
     }
 
-    public function deleteSpecification(int $id): ?object
+    public function deleteSpecification(int $id): object
     {
-        return $this->handleResult($this->specificationRepository->delete($id));
+        $message = $this->specificationRepository->delete($id);
+
+        $this->checkEmpty($message, 'Erro ao deletar os dados da especificação');
+
+        return $message;
     }
 
-    private function handleResult(?object $result): ?object
+    private function checkEmpty($data, string $errorMessage): void
     {
-        return !$result ? null : $result;
+        if (empty($data)) {
+            throw new SpecificationExceptions($errorMessage);
+        }
     }
 }

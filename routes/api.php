@@ -17,7 +17,7 @@ Route::prefix('v1')->middleware('jwt.auth')->group(function () {
     Route::apiResource('carro', CarController::class);
     //Route::apiResource('locacao', LocacaoController::class);
     Route::apiResource('marca', BrandController::class);
-    Route::apiResource('modelo', SpecificationController::class);
+    Route::apiResource('especificacao', SpecificationController::class);
 
     Route::post('logout', [AuthController::class, 'logout']);
     Route::post('refresh', [AuthController::class, 'refresh']);

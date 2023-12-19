@@ -18,19 +18,19 @@ class SpecificationRepository implements SpecificationRepositoryInterface
         $this->specification = $specification;
     }
 
-    public function getAll(array $filters): LengthAwarePaginator
+    public function getAll(array $filters): ?LengthAwarePaginator
     {
         $query = $this->specification::query();
 
         $filtersQuery = [
             'name' => $filters['name'] ?? '',
-            'doors' => $filters['doors'] ?? ''
+            'doors' => $filters['doors'] ?? '',
         ];
     
         if (!empty($filtersQuery)) {
             $query->where([
                 ['name', 'LIKE', '%' . $filtersQuery['name'] . '%'],
-                ['doors', 'LIKE', '%' . $filtersQuery['doors'] . '%']
+                ['doors', 'LIKE', '%' . $filtersQuery['doors'] . '%'],
             ]);
         }
     
@@ -46,7 +46,7 @@ class SpecificationRepository implements SpecificationRepositoryInterface
 
             return $specification;
         } catch (\Exception $e) {
-            Log::error('Erro ao salvar os dados do modelo do veiculo: ' . $e->getMessage());
+            Log::error('Erro ao salvar os dados da especificação: ' . $e->getMessage());
 
             return null;
         }
@@ -57,7 +57,7 @@ class SpecificationRepository implements SpecificationRepositoryInterface
         try {
             return $this->specification->find($id);
         } catch (\Exception $e) {
-            Log::error('Erro ao encontrar os dados do modelo do veiculo: ' . $e->getMessage());
+            Log::error('Erro ao encontrar os dados da especificação: ' . $e->getMessage());
 
             return null;
         }
@@ -70,7 +70,7 @@ class SpecificationRepository implements SpecificationRepositoryInterface
 
             return $this->getById($id);
         } catch (\Exception $e) {
-            Log::error('Erro ao atualizar os dados do modelo do veiculo: ' . $e->getMessage());
+            Log::error('Erro ao atualizar os dados da especificação: ' . $e->getMessage());
 
             return null;
         }
@@ -83,7 +83,7 @@ class SpecificationRepository implements SpecificationRepositoryInterface
 
             return (object) 'Registro deletado com sucesso';
         } catch (\Exception $e) {
-            Log::error('Erro ao deletar os dados do modelo do veiculo: ' . $e->getMessage());
+            Log::error('Erro ao deletar os dados da especificação: ' . $e->getMessage());
 
             return null;
         }

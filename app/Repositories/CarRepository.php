@@ -18,7 +18,7 @@ class CarRepository implements CarRepositoryInterface
         $this->car = $car;
     }
 
-    public function getAll(array $filters): LengthAwarePaginator
+    public function getAll(array $filters): ?LengthAwarePaginator
     {
         $query = $this->car::query();
 
@@ -44,7 +44,7 @@ class CarRepository implements CarRepositoryInterface
 
             return $car;
         } catch (\Exception $e) {
-            Log::error('Erro ao salvar os dados do veiculo: ' . $e->getMessage());
+            Log::error('Erro ao salvar os dados do carro: ' . $e->getMessage());
 
             return null;
         }
@@ -55,7 +55,7 @@ class CarRepository implements CarRepositoryInterface
         try {
             return $this->car->find($id);
         } catch (\Exception $e) {
-            Log::error('Erro ao encontrar os dados do veiculo: ' . $e->getMessage());
+            Log::error('Erro ao encontrar os dados do carro: ' . $e->getMessage());
 
             return null;
         }
@@ -68,7 +68,7 @@ class CarRepository implements CarRepositoryInterface
 
             return $this->getById($id);
         } catch (\Exception $e) {
-            Log::error('Erro ao atualizar os dados do veiculo: ' . $e->getMessage());
+            Log::error('Erro ao atualizar os dados do carro: ' . $e->getMessage());
 
             return null;
         }
@@ -81,7 +81,7 @@ class CarRepository implements CarRepositoryInterface
 
             return (object) 'Registro deletado com sucesso';
         } catch (\Exception $e) {
-            Log::error('Erro ao deletar os dados do veiculo: ' . $e->getMessage());
+            Log::error('Erro ao deletar os dados do carro: ' . $e->getMessage());
 
             return null;
         }

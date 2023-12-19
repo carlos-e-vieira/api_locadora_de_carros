@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use App\Http\Helpers\ResponseHelper;
 use App\Http\Requests\CarFormRequest;
 use App\Services\CarService;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Response;
 
 class CarController extends Controller
 {
@@ -22,38 +22,38 @@ class CarController extends Controller
     {      
         $response = $this->carService->getAllCarsPaginated($carFormRequest->toArray());
 
-        return ResponseHelper::getResponse($response, 'carro', __FUNCTION__);
+        return response()->json(['success' => true, 'response' => $response], Response::HTTP_OK);
     }
 
     public function store(CarFormRequest $carFormRequest): JsonResponse
     {
-        $requestData = $carFormRequest->only('specification_id', 'plate', 'availability', 'km');
+        $requestData = $carFormRequest->only('name');
 
         $response = $this->carService->saveCar($requestData);
 
-        return ResponseHelper::getResponse($response, 'carro', __FUNCTION__);
+        return response()->json(['success' => true, 'response' => $response], Response::HTTP_CREATED);
     }
 
     public function show(int $id): JsonResponse
     {
         $response = $this->carService->getCarById($id);
-
-        return ResponseHelper::getResponse($response, 'carro', __FUNCTION__);
+        
+        return response()->json(['success' => true, 'response' => $response], Response::HTTP_OK);
     }
 
     public function update(CarFormRequest $carFormRequest, int $id): JsonResponse
     {
-        $requestData = $carFormRequest->only('specification_id', 'plate', 'availability', 'km');
+        $requestData = $carFormRequest->only('name');
 
         $response = $this->carService->updateCar($requestData, $id);
 
-        return ResponseHelper::getResponse($response, 'carro', __FUNCTION__);
+        return response()->json(['success' => true, 'response' => $response], Response::HTTP_OK);
     }
 
     public function destroy(int $id): JsonResponse
     {
         $response = $this->carService->deleteCar($id);
 
-        return ResponseHelper::getResponse($response, 'carro', __FUNCTION__);
+        return response()->json(['success' => true, 'response' => $response], Response::HTTP_OK);
     }
 }

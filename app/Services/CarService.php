@@ -4,45 +4,67 @@ declare(strict_types=1);
 
 namespace App\Services;
 
+use App\Exceptions\CarExceptions;
 use App\Interfaces\CarRepositoryInterface;
-use App\Repositories\CarRepository;
 
 class CarService
 {
-    private CarRepository $carRepository;
+    private CarRepositoryInterface $carRepository;
 
-    public function __construct(CarRepositoryInterface $carRepositoryInterface)
+    public function __construct(CarRepositoryInterface $carRepository)
     {
-        $this->carRepository = $carRepositoryInterface;
+        $this->carRepository = $carRepository;
     }
 
-    public function getAllCarsPaginated(array $filters): ?object
+    public function getAllCarsPaginated(array $filters): object
     {
-        return $this->handleResult($this->carRepository->getAll($filters));
+        $cars = $this->carRepository->getAll($filters);
+
+        $this->checkEmpty($cars, 'Erro ao listar todos os registros de carros');
+
+        return $cars;
     }
 
-    public function saveCar(array $data): ?object
+    public function saveCar(array $data): object
     {
-        return $this->handleResult($this->carRepository->save($data));
+        $car = $this->carRepository->save($data);
+
+        $this->checkEmpty($car, 'Erro ao cadastrar os dados do carro');
+
+        return $car;
     }
 
-    public function getCarById(int $id): ?object
+    public function getCarById(int $id): object
     {
-        return $this->handleResult($this->carRepository->getById($id));
+        $car = $this->carRepository->getById($id);
+
+        $this->checkEmpty($car, 'Erro ao listar os dados do carro');
+
+        return $car;
     }
 
-    public function updateCar(array $data, int $id): ?object
+    public function updateCar(array $data, int $id): object
     {        
-        return $this->handleResult($$this->carRepository->update($data, $id));
+        $car = $this->carRepository->update($data, $id);
+
+        $this->checkEmpty($car, 'Erro ao atualizar os dados do carro');
+
+        return $car;
     }
 
-    public function deleteCar(int $id): ?object
+    public function deleteCar(int $id): object
     {
-        return $this->handleResult($this->carRepository->delete($id));
+        $message = $this->carRepository->delete($id);
+
+        $this->checkEmpty($message, 'Erro ao deletar os dados do carro');
+
+        return $message;
     }
 
-    private function handleResult(?object $result): ?object
+    private function checkEmpty($data, string $errorMessage): void
     {
-        return !$result ? null : $result;
+        if (empty($data)) {
+            throw new CarExceptions($errorMessage);
+        }
     }
 }

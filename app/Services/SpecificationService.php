@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace App\Services;
 
 use App\Exceptions\SpecificationExceptions;
-use App\Interfaces\SpecificationRepositoryInterface;
+use App\Repositories\SpecificationRepository;
 
 class SpecificationService
 {
-    private SpecificationRepositoryInterface $specificationRepository;
+    private SpecificationRepository $specificationRepository;
 
-    public function __construct(SpecificationRepositoryInterface $specificationRepository)
+    public function __construct(SpecificationRepository $specificationRepository)
     {
         $this->specificationRepository = $specificationRepository;
     }

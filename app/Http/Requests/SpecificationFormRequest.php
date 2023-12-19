@@ -44,7 +44,7 @@ class SpecificationFormRequest extends FormRequest
     {
         return [
             'brand_id' => 'exists:brands,id',
-            'name' => 'required|min:3|max:30|', Rule::unique('specification', 'name'),
+            'name' => 'required|string|min:3|max:30|' . Rule::unique('specifications', 'name'),
             'doors' => 'required|integer|digits_between:1,5',
             'seats' => 'required|integer|digits_between:1,20',
             'air_bag' => 'required|boolean',
@@ -56,7 +56,7 @@ class SpecificationFormRequest extends FormRequest
     {
         return [
             'brand_id' => 'exists:brands,id',
-            'name' => 'required|string|min:3|max:30|' . Rule::unique('specification', 'name')->ignore($this->id),
+            'name' => 'required|string|min:3|max:30|' . Rule::unique('specifications', 'name')->ignore($this->id),
             'doors' => 'required|integer|digits_between:1,5',
             'seats' => 'required|integer|digits_between:1,20',
             'air_bag' => 'required|boolean',

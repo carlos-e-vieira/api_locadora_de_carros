@@ -5,22 +5,26 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginFormRequest;
+use App\Services\AuthService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
 
 class AuthController extends Controller
 {
+    private AuthService $authService;
+
+    public function __construct(AuthService $authService)
+    {
+        $this->authService = $authService;
+    }
+
     public function login(LoginFormRequest $loginFormRequest): JsonResponse
     {
         $credentials = $loginFormRequest->only('email', 'password');
 
-        $token = auth('api')->attempt($credentials);
+        $response = $this->authService->getToken($credentials);
 
-        if ($token === false) {
-            return response()->json(['success' => false, 'error' => 'Usuário ou senha inválido'], Response::HTTP_FORBIDDEN);
-        }
-
-        return response()->json(['success' => true, 'token' => $token], Response::HTTP_OK);
+        return response()->json(['success' => true, 'response' => $response], Response::HTTP_OK);
     }
 
     public function logout(): JsonResponse

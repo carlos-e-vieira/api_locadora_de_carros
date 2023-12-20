@@ -8,27 +8,27 @@ Criar uma cópia do .env.exemple e renomear para .env
 cp .env.example .env
 
 ### Banco de Dados
-#### Rodar banco instalado no Servidor
+#### Rodar Banco Instalado no Servidor
 Descomentar as variáveis de ambiente # - Conexão Banco Servidor
 
-#### Rodar banco local
+#### Rodar Banco Local
 Altere os valores das variáveis de ambiente de # - Conexão Banco Local
 
-### Rodar o composer
+### Rodar o Composer
 sudo composer install
 
-### Rodar o composer
+### Rodar a API
 php artisan serve
 
-### Rodar as migrations
+### Rodar as Migrations
 php artisan migrate
 
-### Rodar as seeders
+### Rodar as Seeders
 php artisan db:seed
 
 ## Autenticação do Sistema
 
-### Importar collection
+### Importar Collection
 Importe o arquivo Collection_Postman.json que está na raiz do projeto.
 
 ### Gerar Token
@@ -45,10 +45,10 @@ $user->password = bcrypt("1234");
 $user->save();
 
 
-### Atribuir o Token a variavél da collection
+### Atribuir o Token a variável da collection
 Copie e cole o token gerado pela api /login na variavel {{token}} da collection
 
 ## Testes Unitários
 
-### Rodars os testes
+### Rodar os testes
 php artisan test

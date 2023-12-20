@@ -22,23 +22,23 @@ class AuthController extends Controller
     {
         $credentials = $loginFormRequest->only('email', 'password');
 
-        $response = $this->authService->getToken($credentials);
+        $token = $this->authService->getToken($credentials);
 
-        return response()->json(['success' => true, 'response' => $response], Response::HTTP_OK);
+        return response()->json(['success' => true, 'token' => $token], Response::HTTP_OK);
     }
 
     public function logout(): JsonResponse
     {
         auth('api')->logout();
 
-        return response()->json(['logout' => true]);
+        return response()->json(['success' => true, 'message' => 'Logout realizado com sucesso!']);
     }
 
     public function refresh(): JsonResponse
     {
         $token = auth('api')->refresh();
 
-        return response()->json(['token' => $token]);
+        return response()->json(['success' => true, 'token' => $token]);
     }
 
     public function me(): JsonResponse

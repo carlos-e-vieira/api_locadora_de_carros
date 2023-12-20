@@ -42,7 +42,7 @@ class CarFormRequest extends FormRequest
     private function onPost(): array
     {
         return [
-            'specification_id' => 'required|exists:specifications,id',
+            'car_model_id' => 'required|exists:car_models,id',
             'plate' => 'required|min:7|max:7|' . Rule::unique('cars', 'plate'),
             'availability' => 'required|boolean',
             'km' => 'required|integer'
@@ -52,7 +52,7 @@ class CarFormRequest extends FormRequest
     private function onPut(): array
     {
         return [
-            'specification_id' => 'required|exists:specifications,id',
+            'car_model_id' => 'required|exists:car_models,id',
             'plate' => 'required|min:7|max:7|' . Rule::unique('cars', 'plate')->ignore($this->id),
             'availability' => 'required|boolean',
             'km' => 'required|integer'
@@ -62,7 +62,7 @@ class CarFormRequest extends FormRequest
     private function onGet(): array
     {
         return [
-            'specification_id' => 'nullable', 
+            'car_model_id' => 'nullable', 
             'plate' => 'nullable', 
             'availability' => 'nullable', 
             'km' => 'nullable'

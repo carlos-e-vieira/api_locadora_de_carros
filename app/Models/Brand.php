@@ -15,6 +15,6 @@ class Brand extends Model
 
     public function specification()
     {
-        return $this->hasMany(Specification::class);
+        return $this->hasMany(CarModel::class);
     }
 }

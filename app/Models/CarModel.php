@@ -7,16 +7,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Specification extends Model
+class CarModel extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'brand_id', 
-        'name', 
-        'doors', 
-        'seats', 
-        'air_bag', 
+        'brand_id',
+        'name',
+        'doors',
+        'seats',
+        'air_bag',
         'abs'
     ];
 

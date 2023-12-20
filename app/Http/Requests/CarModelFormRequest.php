@@ -7,7 +7,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class SpecificationFormRequest extends FormRequest
+class CarModelFormRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -33,7 +33,7 @@ class SpecificationFormRequest extends FormRequest
     {
         return [
             'required' => 'O campo :attribute é obrigatório',
-            'name.unique' => 'O nome da especificação já existe',
+            'name.unique' => 'O nome do modelo já existe',
             'name.min' => 'O nome deve ter no minímo 3 caracteres',
             'doors.digits_between' => 'O número de portas deve ser entre 1 e 5',
             'seats.digits_between' => 'O número de lugares deve ser entre 1 e 20',
@@ -44,7 +44,7 @@ class SpecificationFormRequest extends FormRequest
     {
         return [
             'brand_id' => 'exists:brands,id',
-            'name' => 'required|string|min:3|max:30|' . Rule::unique('specifications', 'name'),
+            'name' => 'required|string|min:3|max:30|' . Rule::unique('car_models', 'name'),
             'doors' => 'required|integer|digits_between:1,5',
             'seats' => 'required|integer|digits_between:1,20',
             'air_bag' => 'required|boolean',
@@ -56,7 +56,7 @@ class SpecificationFormRequest extends FormRequest
     {
         return [
             'brand_id' => 'exists:brands,id',
-            'name' => 'required|string|min:3|max:30|' . Rule::unique('specifications', 'name')->ignore($this->id),
+            'name' => 'required|string|min:3|max:30|' . Rule::unique('car_models', 'name')->ignore($this->id),
             'doors' => 'required|integer|digits_between:1,5',
             'seats' => 'required|integer|digits_between:1,20',
             'air_bag' => 'required|boolean',

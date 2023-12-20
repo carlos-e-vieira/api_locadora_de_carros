@@ -12,7 +12,7 @@ class Car extends Model
     use HasFactory;
 
     protected $fillable = [
-        'specification_id', 
+        'car_model_id', 
         'plate', 
         'availability', 
         'km'
@@ -20,6 +20,6 @@ class Car extends Model
 
     public function specification()
     {
-        return $this->belongsTo(Specification::class);
+        return $this->belongsTo(CarModel::class);
     }
 }

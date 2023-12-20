@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace App\Repositories;
 
-use App\Models\Specification;
+use App\Models\CarModel;
 
-class SpecificationRepository extends AbstractRepository
+class CarModelRepository extends AbstractRepository
 {
-    public function __construct(Specification $specification)
+    public function __construct(CarModel $carModel)
     {
-        parent::__construct($specification);
+        parent::__construct($carModel);
     }
 
     protected function applyFilters($query, array $filters)

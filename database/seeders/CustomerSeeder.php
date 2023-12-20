@@ -12,7 +12,7 @@ class CustomerSeeder extends Seeder
     public function run(): void
     {
         $sql = "
-            INSERT INTO users (name, email, password) VALUES 
+            INSERT INTO customers (name, cpf) VALUES 
             ('Vera Luiz Borges', '12378945678')";
 
         DB::statement($sql);

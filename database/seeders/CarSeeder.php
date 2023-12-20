@@ -12,7 +12,7 @@ class CarSeeder extends Seeder
     public function run(): void
     {
         $sql = "
-            INSERT INTO cars (car_model_id, plate, availability, km, ) VALUES 
+            INSERT INTO cars (car_model_id, plate, availability, km) VALUES 
             (1, 'ABC0123', 1, 2562)";
 
         DB::statement($sql);

@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "86004fbe-637f-4b03-a3b1-c283ea91786d",
 		"name": "API Locadora de Carros",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "31842263"
 	},
 	"item": [
@@ -29,16 +29,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{host}}/api/login",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"login"
-							]
-						}
+						"url": "{{host}}/api/login"
 					},
 					"response": [
 						{
@@ -61,17 +52,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "localhost:8000/api/login",
-									"host": [
-										"localhost"
-									],
-									"port": "8000",
-									"path": [
-										"api",
-										"login"
-									]
-								}
+								"url": "localhost:8000/api/login"
 							},
 							"status": "OK",
 							"code": 200,
@@ -148,17 +129,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{host}}/api/v1/me",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"me"
-							]
-						}
+						"url": "{{host}}/api/v1/me"
 					},
 					"response": [
 						{
@@ -186,17 +157,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "{{host}}/api/v1/me",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"me"
-									]
-								}
+								"url": "{{host}}/api/v1/me"
 							},
 							"status": "OK",
 							"code": 200,
@@ -273,17 +234,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{host}}/api/v1/refresh",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"refresh"
-							]
-						}
+						"url": "{{host}}/api/v1/refresh"
 					},
 					"response": [
 						{
@@ -311,17 +262,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "{{host}}/api/v1/refresh",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"refresh"
-									]
-								}
+								"url": "{{host}}/api/v1/refresh"
 							},
 							"status": "OK",
 							"code": 200,
@@ -398,17 +339,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{host}}/api/v1/logout",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"logout"
-							]
-						}
+						"url": "{{host}}/api/v1/logout"
 					},
 					"response": [
 						{
@@ -436,17 +367,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "{{host}}/api/v1/logout",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"logout"
-									]
-								}
+								"url": "{{host}}/api/v1/logout"
 							},
 							"status": "OK",
 							"code": 200,
@@ -519,17 +440,7 @@
 								"type": "text"
 							}
 						],
-						"url": {
-							"raw": "{{host}}/api/v1/marca",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"marca"
-							]
-						}
+						"url": "{{host}}/api/v1/marca"
 					},
 					"response": [
 						{
@@ -543,17 +454,7 @@
 										"type": "text"
 									}
 								],
-								"url": {
-									"raw": "localhost:8000/api/marca",
-									"host": [
-										"localhost"
-									],
-									"port": "8000",
-									"path": [
-										"api",
-										"marca"
-									]
-								}
+								"url": "localhost:8000/api/marca"
 							},
 							"status": "Created",
 							"code": 201,
@@ -755,18 +656,7 @@
 								"type": "text"
 							}
 						],
-						"url": {
-							"raw": "{{host}}/api/v1/marca/1",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"marca",
-								"1"
-							]
-						}
+						"url": "{{host}}/api/v1/marca/1"
 					},
 					"response": [
 						{
@@ -780,18 +670,7 @@
 										"type": "text"
 									}
 								],
-								"url": {
-									"raw": "localhost:8000/api/marca/1",
-									"host": [
-										"localhost"
-									],
-									"port": "8000",
-									"path": [
-										"api",
-										"marca",
-										"1"
-									]
-								}
+								"url": "localhost:8000/api/marca/1"
 							},
 							"status": "Created",
 							"code": 201,
@@ -868,18 +747,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{host}}/api/v1/marca/5",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"marca",
-								"5"
-							]
-						}
+						"url": "{{host}}/api/v1/marca/5"
 					},
 					"response": [
 						{
@@ -902,18 +770,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "localhost:8000/api/marca/5",
-									"host": [
-										"localhost"
-									],
-									"port": "8000",
-									"path": [
-										"api",
-										"marca",
-										"5"
-									]
-								}
+								"url": "localhost:8000/api/marca/5"
 							},
 							"status": "OK",
 							"code": 200,
@@ -981,18 +838,7 @@
 								"type": "text"
 							}
 						],
-						"url": {
-							"raw": "{{host}}/api/v1/marca/48",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"marca",
-								"48"
-							]
-						}
+						"url": "{{host}}/api/v1/marca/48"
 					},
 					"response": [
 						{
@@ -1006,18 +852,7 @@
 										"type": "text"
 									}
 								],
-								"url": {
-									"raw": "localhost:8000/api/marca/6",
-									"host": [
-										"localhost"
-									],
-									"port": "8000",
-									"path": [
-										"api",
-										"marca",
-										"6"
-									]
-								}
+								"url": "localhost:8000/api/marca/6"
 							},
 							"status": "OK",
 							"code": 200,
@@ -1090,17 +925,7 @@
 								"type": "text"
 							}
 						],
-						"url": {
-							"raw": "{{host}}/api/v1/carro",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"carro"
-							]
-						}
+						"url": "{{host}}/api/v1/carro"
 					},
 					"response": [
 						{
@@ -1119,17 +944,7 @@
 										"type": "text"
 									}
 								],
-								"url": {
-									"raw": "{{host}}/api/v1/carro",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"carro"
-									]
-								}
+								"url": "{{host}}/api/v1/carro"
 							},
 							"status": "OK",
 							"code": 200,
@@ -1141,11 +956,11 @@
 								},
 								{
 									"key": "Date",
-									"value": "Tue, 19 Dec 2023 22:19:32 GMT"
+									"value": "Wed, 20 Dec 2023 21:47:02 GMT"
 								},
 								{
 									"key": "Date",
-									"value": "Tue, 19 Dec 2023 22:19:32 GMT"
+									"value": "Wed, 20 Dec 2023 21:47:02 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1177,7 +992,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"success\": true,\n    \"response\": {\n        \"current_page\": 1,\n        \"data\": [\n            {\n                \"id\": 1,\n                \"specification_id\": 1,\n                \"plate\": \"ACB0000\",\n                \"availability\": 1,\n                \"km\": 2500,\n                \"created_at\": \"2023-12-19T22:14:24.000000Z\",\n                \"updated_at\": \"2023-12-19T22:18:06.000000Z\"\n            }\n        ],\n        \"first_page_url\": \"http://localhost:8000/api/v1/carro?page=1\",\n        \"from\": 1,\n        \"last_page\": 1,\n        \"last_page_url\": \"http://localhost:8000/api/v1/carro?page=1\",\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://localhost:8000/api/v1/carro?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": null,\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"next_page_url\": null,\n        \"path\": \"http://localhost:8000/api/v1/carro\",\n        \"per_page\": 15,\n        \"prev_page_url\": null,\n        \"to\": 1,\n        \"total\": 1\n    }\n}"
+							"body": "{\n    \"success\": true,\n    \"response\": {\n        \"current_page\": 1,\n        \"data\": [\n            {\n                \"id\": 2,\n                \"car_model_id\": 1,\n                \"plate\": \"KAL7588\",\n                \"availability\": 1,\n                \"km\": 2500,\n                \"created_at\": \"2023-12-20T21:46:43.000000Z\",\n                \"updated_at\": \"2023-12-20T21:46:43.000000Z\"\n            },\n            {\n                \"id\": 1,\n                \"car_model_id\": 1,\n                \"plate\": \"ABC0123\",\n                \"availability\": 1,\n                \"km\": 2562,\n                \"created_at\": null,\n                \"updated_at\": null\n            }\n        ],\n        \"first_page_url\": \"http://localhost:8000/api/v1/carro?page=1\",\n        \"from\": 1,\n        \"last_page\": 1,\n        \"last_page_url\": \"http://localhost:8000/api/v1/carro?page=1\",\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://localhost:8000/api/v1/carro?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": null,\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"next_page_url\": null,\n        \"path\": \"http://localhost:8000/api/v1/carro\",\n        \"per_page\": 15,\n        \"prev_page_url\": null,\n        \"to\": 2,\n        \"total\": 2\n    }\n}"
 						}
 					]
 				},
@@ -1199,7 +1014,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"specification_id\" : 1,\r\n    \"plate\" : \"KAL7588\",\r\n    \"availability\" : true,\r\n    \"km\" : 2500\r\n}",
+							"raw": "{\r\n    \"car_model_id\" : 1,\r\n    \"plate\" : \"RRR4444\",\r\n    \"availability\" : true,\r\n    \"km\" : 2500\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1244,7 +1059,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"specification_id\" : 1,\r\n    \"plate\" : \"KAL7588\",\r\n    \"availability\" : true,\r\n    \"km\" : 2500\r\n}",
+									"raw": "{\r\n    \"car_model_id\" : 1,\r\n    \"plate\" : \"KAL7588\",\r\n    \"availability\" : true,\r\n    \"km\" : 2500\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1280,356 +1095,11 @@
 								},
 								{
 									"key": "Date",
-									"value": "Tue, 19 Dec 2023 22:20:47 GMT"
+									"value": "Wed, 20 Dec 2023 21:46:43 GMT"
 								},
 								{
 									"key": "Date",
-									"value": "Tue, 19 Dec 2023 22:20:47 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "close"
-								},
-								{
-									"key": "X-Powered-By",
-									"value": "PHP/8.1.12"
-								},
-								{
-									"key": "Cache-Control",
-									"value": "no-cache, private"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "60"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "59"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"success\": true,\n    \"response\": {\n        \"specification_id\": 1,\n        \"plate\": \"KAL7588\",\n        \"availability\": true,\n        \"km\": 2500,\n        \"updated_at\": \"2023-12-19T22:20:47.000000Z\",\n        \"created_at\": \"2023-12-19T22:20:47.000000Z\",\n        \"id\": 3\n    }\n}"
-						}
-					]
-				},
-				{
-					"name": "Buscar Carro",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{host}}/api/v1/carro/1",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"carro",
-								"1"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "Success - Buscar Carro",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									},
-									{
-										"key": "Authorization",
-										"value": "Bearer {{token}}",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{host}}/api/v1/carro/1",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"carro",
-										"1"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Host",
-									"value": "localhost:8000"
-								},
-								{
-									"key": "Date",
-									"value": "Tue, 19 Dec 2023 22:21:36 GMT"
-								},
-								{
-									"key": "Date",
-									"value": "Tue, 19 Dec 2023 22:21:36 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "close"
-								},
-								{
-									"key": "X-Powered-By",
-									"value": "PHP/8.1.12"
-								},
-								{
-									"key": "Cache-Control",
-									"value": "no-cache, private"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "60"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "54"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"success\": true,\n    \"response\": {\n        \"id\": 1,\n        \"specification_id\": 1,\n        \"plate\": \"ACB0000\",\n        \"availability\": 1,\n        \"km\": 2500,\n        \"created_at\": \"2023-12-19T22:14:24.000000Z\",\n        \"updated_at\": \"2023-12-19T22:18:06.000000Z\"\n    }\n}"
-						}
-					]
-				},
-				{
-					"name": "Editar Carro",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"specification_id\" : 1,\r\n    \"plate\" : \"ACB9988\",\r\n    \"availability\" : true,\r\n    \"km\" : 2500\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{host}}/api/v1/carro/1",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"carro",
-								"1"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "Success - Editar Carro",
-							"originalRequest": {
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									},
-									{
-										"key": "Authorization",
-										"value": "Bearer {{token}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"specification_id\" : 1,\r\n    \"plate\" : \"ACB9988\",\r\n    \"availability\" : true,\r\n    \"km\" : 2500\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}/api/v1/carro/1",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"carro",
-										"1"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Host",
-									"value": "localhost:8000"
-								},
-								{
-									"key": "Date",
-									"value": "Tue, 19 Dec 2023 22:22:11 GMT"
-								},
-								{
-									"key": "Date",
-									"value": "Tue, 19 Dec 2023 22:22:11 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "close"
-								},
-								{
-									"key": "X-Powered-By",
-									"value": "PHP/8.1.12"
-								},
-								{
-									"key": "Cache-Control",
-									"value": "no-cache, private"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "60"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "59"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"success\": true,\n    \"response\": {\n        \"id\": 1,\n        \"specification_id\": 1,\n        \"plate\": \"ACB9988\",\n        \"availability\": 1,\n        \"km\": 2500,\n        \"created_at\": \"2023-12-19T22:14:24.000000Z\",\n        \"updated_at\": \"2023-12-19T22:22:11.000000Z\"\n    }\n}"
-						}
-					]
-				},
-				{
-					"name": "Deletar Carro",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{host}}/api/v1/carro/3",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"carro",
-								"3"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "Success - Deletar Carro",
-							"originalRequest": {
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									},
-									{
-										"key": "Authorization",
-										"value": "Bearer {{token}}",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{host}}/api/v1/carro/3",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"carro",
-										"3"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Host",
-									"value": "localhost:8000"
-								},
-								{
-									"key": "Date",
-									"value": "Tue, 19 Dec 2023 22:22:40 GMT"
-								},
-								{
-									"key": "Date",
-									"value": "Tue, 19 Dec 2023 22:22:40 GMT"
+									"value": "Wed, 20 Dec 2023 21:46:43 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1654,6 +1124,285 @@
 								{
 									"key": "X-RateLimit-Remaining",
 									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"response\": {\n        \"car_model_id\": 1,\n        \"plate\": \"KAL7588\",\n        \"availability\": true,\n        \"km\": 2500,\n        \"updated_at\": \"2023-12-20T21:46:43.000000Z\",\n        \"created_at\": \"2023-12-20T21:46:43.000000Z\",\n        \"id\": 2\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Buscar Carro",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": "{{host}}/api/v1/carro/1"
+					},
+					"response": [
+						{
+							"name": "Success - Buscar Carro",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": "{{host}}/api/v1/carro/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 20 Dec 2023 21:47:35 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 20 Dec 2023 21:47:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"response\": {\n        \"id\": 1,\n        \"car_model_id\": 1,\n        \"plate\": \"ABC0123\",\n        \"availability\": 1,\n        \"km\": 2562,\n        \"created_at\": null,\n        \"updated_at\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Editar Carro",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"car_model_id\" : 1,\r\n    \"plate\" : \"ACB9988\",\r\n    \"availability\" : true,\r\n    \"km\" : 2500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{host}}/api/v1/carro/1"
+					},
+					"response": [
+						{
+							"name": "Success - Editar Carro",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"car_model_id\" : 1,\r\n    \"plate\" : \"ACB9988\",\r\n    \"availability\" : true,\r\n    \"km\" : 2500\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{host}}/api/v1/carro/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 20 Dec 2023 21:48:16 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 20 Dec 2023 21:48:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"response\": {\n        \"id\": 1,\n        \"car_model_id\": 1,\n        \"plate\": \"ACB9988\",\n        \"availability\": 1,\n        \"km\": 2500,\n        \"created_at\": null,\n        \"updated_at\": \"2023-12-20T21:48:16.000000Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Deletar Carro",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": "{{host}}/api/v1/carro/3"
+					},
+					"response": [
+						{
+							"name": "Success - Deletar Carro",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": "{{host}}/api/v1/carro/3"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 20 Dec 2023 21:49:12 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 20 Dec 2023 21:49:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "56"
 								},
 								{
 									"key": "Access-Control-Allow-Origin",
@@ -1686,17 +1435,7 @@
 								"type": "text"
 							}
 						],
-						"url": {
-							"raw": "{{host}}/api/v1/cliente",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"cliente"
-							]
-						}
+						"url": "{{host}}/api/v1/cliente"
 					},
 					"response": [
 						{
@@ -1715,17 +1454,7 @@
 										"type": "text"
 									}
 								],
-								"url": {
-									"raw": "{{host}}/api/v1/cliente",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"cliente"
-									]
-								}
+								"url": "{{host}}/api/v1/cliente"
 							},
 							"status": "OK",
 							"code": 200,
@@ -1932,18 +1661,7 @@
 								"type": "text"
 							}
 						],
-						"url": {
-							"raw": "{{host}}/api/v1/cliente/1",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"cliente",
-								"1"
-							]
-						}
+						"url": "{{host}}/api/v1/cliente/1"
 					},
 					"response": [
 						{
@@ -1962,18 +1680,7 @@
 										"type": "text"
 									}
 								],
-								"url": {
-									"raw": "{{host}}/api/v1/cliente/1",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"cliente",
-										"1"
-									]
-								}
+								"url": "{{host}}/api/v1/cliente/1"
 							},
 							"status": "OK",
 							"code": 200,
@@ -2050,18 +1757,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{host}}/api/v1/cliente/1",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"cliente",
-								"1"
-							]
-						}
+						"url": "{{host}}/api/v1/cliente/1"
 					},
 					"response": [
 						{
@@ -2089,18 +1785,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "{{host}}/api/v1/cliente/1",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"cliente",
-										"1"
-									]
-								}
+								"url": "{{host}}/api/v1/cliente/1"
 							},
 							"status": "OK",
 							"code": 200,
@@ -2168,18 +1853,7 @@
 								"type": "text"
 							}
 						],
-						"url": {
-							"raw": "{{host}}/api/v1/cliente/3",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"cliente",
-								"3"
-							]
-						}
+						"url": "{{host}}/api/v1/cliente/3"
 					},
 					"response": [
 						{
@@ -2198,18 +1872,7 @@
 										"type": "text"
 									}
 								],
-								"url": {
-									"raw": "{{host}}/api/v1/cliente/3",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"cliente",
-										"3"
-									]
-								}
+								"url": "{{host}}/api/v1/cliente/3"
 							},
 							"status": "OK",
 							"code": 200,
@@ -2264,10 +1927,10 @@
 			]
 		},
 		{
-			"name": "Especificações (Modelos)",
+			"name": "Modelos",
 			"item": [
 				{
-					"name": "Listar Especificações",
+					"name": "Listar Modelos",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -2282,21 +1945,11 @@
 								"type": "text"
 							}
 						],
-						"url": {
-							"raw": "{{host}}/api/v1/especificacao",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"especificacao"
-							]
-						}
+						"url": "{{host}}/api/v1/modelo"
 					},
 					"response": [
 						{
-							"name": "Success - Listar Especificações",
+							"name": "Success - Listar Modelos",
 							"originalRequest": {
 								"method": "GET",
 								"header": [
@@ -2311,17 +1964,7 @@
 										"type": "text"
 									}
 								],
-								"url": {
-									"raw": "{{host}}/api/v1/especificacao",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"especificacao"
-									]
-								}
+								"url": "{{host}}/api/v1/modelo"
 							},
 							"status": "OK",
 							"code": 200,
@@ -2374,7 +2017,7 @@
 					]
 				},
 				{
-					"name": "Cadastrar Especificação",
+					"name": "Cadastrar Modelo",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -2399,14 +2042,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/api/v1/especificacao",
+							"raw": "{{host}}/api/v1/modelo",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"api",
 								"v1",
-								"especificacao"
+								"modelo"
 							],
 							"query": [
 								{
@@ -2419,7 +2062,7 @@
 					},
 					"response": [
 						{
-							"name": "Success - Cadastrar Especificação",
+							"name": "Success - Cadastrar Modelo",
 							"originalRequest": {
 								"method": "POST",
 								"header": [
@@ -2444,14 +2087,14 @@
 									}
 								},
 								"url": {
-									"raw": "{{host}}/api/v1/especificacao",
+									"raw": "{{host}}/api/v1/modelo",
 									"host": [
 										"{{host}}"
 									],
 									"path": [
 										"api",
 										"v1",
-										"especificacao"
+										"modelo"
 									],
 									"query": [
 										{
@@ -2513,7 +2156,7 @@
 					]
 				},
 				{
-					"name": "Buscar Especificação",
+					"name": "Buscar Modelo",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -2528,22 +2171,11 @@
 								"type": "text"
 							}
 						],
-						"url": {
-							"raw": "{{host}}/api/v1/especificacao/1",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"especificacao",
-								"1"
-							]
-						}
+						"url": "{{host}}/api/v1/modelo/1"
 					},
 					"response": [
 						{
-							"name": "Success - Buscar Especificação",
+							"name": "Success - Buscar Modelo",
 							"originalRequest": {
 								"method": "GET",
 								"header": [
@@ -2558,18 +2190,7 @@
 										"type": "text"
 									}
 								],
-								"url": {
-									"raw": "{{host}}/api/v1/especificacao/1",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"especificacao",
-										"1"
-									]
-								}
+								"url": "{{host}}/api/v1/modelo/1"
 							},
 							"status": "OK",
 							"code": 200,
@@ -2622,7 +2243,7 @@
 					]
 				},
 				{
-					"name": "Editar Especificação",
+					"name": "Editar Modelo",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -2646,22 +2267,11 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{host}}/api/v1/especificacao/1",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"especificacao",
-								"1"
-							]
-						}
+						"url": "{{host}}/api/v1/modelo/1"
 					},
 					"response": [
 						{
-							"name": "Success - Editar Especificação",
+							"name": "Success - Editar Modelo",
 							"originalRequest": {
 								"method": "PUT",
 								"header": [
@@ -2685,18 +2295,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "{{host}}/api/v1/especificacao/1",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"especificacao",
-										"1"
-									]
-								}
+								"url": "{{host}}/api/v1/modelo/1"
 							},
 							"status": "OK",
 							"code": 200,
@@ -2749,7 +2348,7 @@
 					]
 				},
 				{
-					"name": "Deletar Especificação",
+					"name": "Deletar Modelo",
 					"request": {
 						"method": "DELETE",
 						"header": [
@@ -2764,18 +2363,7 @@
 								"type": "text"
 							}
 						],
-						"url": {
-							"raw": "{{host}}/api/v1/especificacao/7",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"especificacao",
-								"7"
-							]
-						}
+						"url": "{{host}}/api/v1/modelo/7"
 					},
 					"response": [
 						{
@@ -2794,18 +2382,7 @@
 										"type": "text"
 									}
 								],
-								"url": {
-									"raw": "{{host}}/api/v1/especificacao/7",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"especificacao",
-										"7"
-									]
-								}
+								"url": "{{host}}/api/v1/modelo/7"
 							},
 							"status": "OK",
 							"code": 200,
@@ -2883,7 +2460,7 @@
 	"variable": [
 		{
 			"key": "token",
-			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3YxL3JlZnJlc2giLCJpYXQiOjE3MDMwMzE1NDksImV4cCI6MTcwMzA0MjQwNSwibmJmIjoxNzAzMDMxNjA1LCJqdGkiOiJZVzhjWUN4MktyUWp5bE01Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ChP5vGb7V5JPnZbeULjez1_7ArrzqEb9PFYR__LR90s",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzAzMTA4NTk4LCJleHAiOjE3MDMxMTkzOTgsIm5iZiI6MTcwMzEwODU5OCwianRpIjoicmN2c0VJOEdzZ01LdzB4SiIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.U1AqsQ_aTLRWRnsHX9Zn61iIqUhF6blUsCYJ4dwbmMw",
 			"type": "string"
 		},
 		{

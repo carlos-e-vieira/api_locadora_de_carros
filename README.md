@@ -6,8 +6,14 @@ Projeto de teste - backend da aplicação Locadora de Carros.
 ### Rodar o composer
 sudo composer install
 
-### Rodar migrations e seeders
-php artisan migrate --seed
+### Rodar o composer
+php artisan serve
+
+### Rodar as migrations
+php artisan migrate
+
+### Rodar as seeders
+php artisan db:seed
 
 ## Autenticação do Sistema
 
@@ -29,4 +35,4 @@ $user->save();
 
 
 ### Atribuir o Token a variavél da collection
-Copie e cole o token gerado pela api na variavel {{token}} da collection
+Copie e cole o token gerado pela api /login na variavel {{token}} da collection

@@ -3,6 +3,17 @@ Projeto de teste - backend da aplicação Locadora de Carros.
 
 ## Configurando Ambiente de Desenvolvimento
 
+### Configurar o .ENV
+Criar uma cópia do .env.exemple e renomear para .env
+cp .env.example .env
+
+### Banco de Dados
+#### Rodar banco instalado no Servidor
+Descomentar as variáveis de ambiente # - Conexão Banco Servidor
+
+#### Rodar banco local
+Altere os valores das variáveis de ambiente de # - Conexão Banco Local
+
 ### Rodar o composer
 sudo composer install
 
@@ -36,3 +47,8 @@ $user->save();
 
 ### Atribuir o Token a variavél da collection
 Copie e cole o token gerado pela api /login na variavel {{token}} da collection
+
+## Testes Unitários
+
+### Rodars os testes
+php artisan test

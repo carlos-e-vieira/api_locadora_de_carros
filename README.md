@@ -5,6 +5,7 @@ Projeto de teste - backend da aplicação Locadora de Carros.
 
 ### Configurar o .ENV
 Criar uma cópia do .env.exemple e renomear para .env
+
 cp .env.example .env
 
 ### Banco de Dados

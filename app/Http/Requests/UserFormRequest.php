@@ -37,7 +37,7 @@ class UserFormRequest extends FormRequest
             'name.max' => 'O nome deve ter 30 caracteres no máximo',
             'email.unique' => 'O Email já existe',
             'email.min' => 'O Email deve ter 5 caracteres',
-            'email.max' => 'O Email deve ter 20 caracteres',
+            'email.max' => 'O Email deve ter 60 caracteres',
             'password.min' => 'A senha deve ter 4 caracteres',
             'password.max' => 'A senha deve ter 20 caracteres'
         ];
@@ -47,7 +47,7 @@ class UserFormRequest extends FormRequest
     {
         return [
             'name' => 'required|min:3|max:30',
-            'email' => 'required|min:5|max:20|' . Rule::unique('users', 'email'),
+            'email' => 'required|min:5|max:60|' . Rule::unique('users', 'email'),
             'password' => 'required|min:4|max:30'
         ];
     }
@@ -56,7 +56,7 @@ class UserFormRequest extends FormRequest
     {
         return [
             'name' => 'required|min:3|max:30',
-            'email' => 'required|min:5|max:20|' . Rule::unique('users', 'email')->ignore($this->id),
+            'email' => 'required|min:5|max:60|' . Rule::unique('users', 'email')->ignore($this->id),
             'password' => 'required|min:4|max:30'
         ];
     }

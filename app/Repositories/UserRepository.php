@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Repositories;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserRepository extends AbstractRepository
 {
@@ -26,5 +27,12 @@ class UserRepository extends AbstractRepository
                 ['email', 'LIKE', '%' . $filtersQuery['email'] . '%'],
             ]);
         }
+    }
+
+    public function updatePassword(User $user, $newPassword): void
+    {
+        $user->password = Hash::make($newPassword);
+        
+        $user->save();
     }
 }
